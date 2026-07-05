@@ -1,44 +1,23 @@
-from datetime import datetime
-import os
-import sys
-import platform
+import argparse
 
+from dashboard import print_header
+from system_info import show_system_info
+from file_utils import list_files
 
-print("=" * 50)
-print("      Holly's Raspberry Pi Developer Dashboard")
-print("=" * 50)
-print()
+parser = argparse.ArgumentParser(description="Developer Dashboard")
 
-print("👋 Welcome Holly!")
-print()
+parser.add_argument("--name")
+parser.add_argument("--systeminfo", action="store_true")
+parser.add_argument("--listfiles", action="store_true")
 
-today = datetime.now()
+args = parser.parse_args()
 
-print(f"📅 Date: {today.strftime('%A, %B %d, %Y')}")
-print(f"🕒 Time: {today.strftime('%I:%M %p')}")
-print()
+print_header(args.name)
 
-print("💻 Current Directory:")
-print(os.getcwd())
-print()
+if args.systeminfo:
+    show_system_info()
 
-print("🐍 Python Version:")
-print(sys.version)
-print()
-
-print("💾 Operating System:")
-print(platform.system())
-print()
-
-print("🖥️ Computer Name:")
-print(platform.node())
-print()
-
-print("📂 Files in this folder:")
-
-for file in os.listdir():
-    print(f"   {file}")
-
-print()
+if args.listfiles:
+    list_files()
 
 print("Have a great day coding!")
