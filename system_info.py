@@ -18,3 +18,4 @@ def show_system_info():
     print("🖥️ Computer Name:")
     print(platform.node())
     print()
+    
