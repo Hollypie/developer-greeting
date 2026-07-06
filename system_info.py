@@ -15,7 +15,7 @@ def show_system_info():
     print(platform.system())
     print()
 
-    print("🖥️ Computer Name:")
+    print("🖥️  Computer Name:")
     print(platform.node())
     print()
     

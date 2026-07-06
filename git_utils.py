@@ -12,3 +12,4 @@ def show_git_status():
     )
 
     print(result.stdout)
+    print()
